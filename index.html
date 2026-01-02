@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Panda Menu</title>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Panda Menu</title>
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <img id="menuImage">
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const image = params.get("image");
+
+    if (image) {
+      document.getElementById("menuImage").src = `assets/${image}.png`;
+    } else {
+      document.getElementById("menuImage").src = "assets/pandamenu3.png";
+    }
+  </script>
+</body>
+
+</html>
+</html>
