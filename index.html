@@ -1,17 +1,307 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Panda Menu</title>
-
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium dark gaming marketplace for digital products, instant delivery, PIX checkout, support tickets, and admin management.">
+  <title>Panda Market | Premium Digital Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="app">
-    <img src="assests/baixados34.png" alt="Panda Menu">
+  <div class="orb orb-cyan"></div>
+  <div class="orb orb-violet"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Go to homepage">
+      <span class="brand-logo">
+        <img src="assests/baixados34.png" alt="Panda Market logo">
+      </span>
+      <span>
+        <strong>Panda Market</strong>
+        <small>Digital Vault</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" data-main-nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#support">Support</a>
+      <a href="#other-products">Other Products</a>
+      <a href="#cart">Cart <span class="cart-count" data-cart-count>0</span></a>
+      <a href="#auth">Login/Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Instant delivery digital marketplace</span>
+        <h1>Premium gaming accounts, services, and gift cards in one dark neon store.</h1>
+        <p>Shop verified digital products, pay with Mercado Pago PIX, track your order, and request redemption support from a protected customer dashboard.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#products">Shop Products</a>
+          <a class="btn btn-secondary" href="#support">Open Support Ticket</a>
+        </div>
+        <div class="trust-grid" aria-label="Marketplace statistics">
+          <div><strong>24/7</strong><span>Support</span></div>
+          <div><strong>4.9/5</strong><span>Rating</span></div>
+          <div><strong>PIX</strong><span>Checkout</span></div>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="glow-card">
+          <div class="card-header">
+            <span class="pulse"></span>
+            Live marketplace
+          </div>
+          <img src="assests/cursorcheat3.png" alt="Featured gaming digital product preview">
+          <div class="deal-row">
+            <span>Featured drop</span>
+            <strong>R$ 79,90</strong>
+          </div>
+          <button class="btn btn-primary" type="button" data-quick-add="panda-rockstar">Add Featured Deal</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-strip" aria-label="Platform features">
+      <article>
+        <span>01</span>
+        <h3>Role protected</h3>
+        <p>Customer and admin dashboards keep store operations separate.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Instant delivery</h3>
+        <p>Digital products show availability, rating, and delivery status.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Mercado Pago PIX</h3>
+        <p>Checkout includes QR code and copy-and-paste payment code.</p>
+      </article>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Product catalog</span>
+        <h2>Featured digital products</h2>
+        <p>Filter by category, search products, and add instant-delivery products to your cart.</p>
+      </div>
+
+      <div class="store-toolbar reveal">
+        <label class="search-box">
+          <span>Search</span>
+          <input type="search" placeholder="Search accounts, gift cards, services..." data-search>
+        </label>
+        <label class="filter-box">
+          <span>Category</span>
+          <select data-category-filter>
+            <option value="all">All categories</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="product-grid" data-product-grid></div>
+    </section>
+
+    <section class="section split-section" id="cart">
+      <div class="panel reveal">
+        <div class="section-heading compact">
+          <span class="eyebrow">Persistent shopping cart</span>
+          <h2>Your cart</h2>
+          <p>Add, remove, and change quantities. Your cart is saved automatically in this browser.</p>
+        </div>
+        <div class="cart-items" data-cart-items></div>
+        <div class="cart-summary">
+          <span>Total</span>
+          <strong data-cart-total>R$ 0,00</strong>
+        </div>
+        <button class="btn btn-primary full" type="button" data-checkout>Checkout with Mercado Pago</button>
+      </div>
+
+      <div class="panel reveal">
+        <div class="section-heading compact">
+          <span class="eyebrow">Login/Register</span>
+          <h2>Account access</h2>
+          <p>Use the demo role selector to preview customer and admin permissions.</p>
+        </div>
+        <form class="auth-card" id="auth">
+          <label>
+            Email
+            <input type="email" value="customer@pandamarket.gg" data-auth-email>
+          </label>
+          <label>
+            Role
+            <select data-role-select>
+              <option value="customer">Customer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+          <button class="btn btn-secondary full" type="submit">Login / Register</button>
+        </form>
+        <div class="role-status" data-role-status></div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Verified reviews</span>
+        <h2>Trusted by digital buyers</h2>
+      </div>
+      <div class="review-grid">
+        <article class="review-card reveal">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="Customer avatar">
+          <div>
+            <div class="stars">★★★★★</div>
+            <h3>Lucas M.</h3>
+            <span class="verified">Verified purchase</span>
+            <p>Got my Rockstar account instantly and support helped me redeem everything in minutes.</p>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80" alt="Customer avatar">
+          <div>
+            <div class="stars">★★★★★</div>
+            <h3>Marina K.</h3>
+            <span class="verified">Verified purchase</span>
+            <p>The dark UI feels premium and the PIX copy code made checkout simple.</p>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80" alt="Customer avatar">
+          <div>
+            <div class="stars">★★★★☆</div>
+            <h3>Rafael G.</h3>
+            <span class="verified">Verified purchase</span>
+            <p>Great gift card selection, clean order history, and fast ticket notifications.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="support">
+      <div class="panel reveal">
+        <div class="section-heading compact">
+          <span class="eyebrow">Support tickets</span>
+          <h2>Open a ticket</h2>
+          <p>Customers can request redemption, purchase help, or post-order support.</p>
+        </div>
+        <form class="ticket-form" data-ticket-form>
+          <label>
+            Subject
+            <input type="text" placeholder="Need help redeeming my product" required data-ticket-subject>
+          </label>
+          <label>
+            Message
+            <textarea placeholder="Describe your request..." required data-ticket-message></textarea>
+          </label>
+          <button class="btn btn-primary full" type="submit">Send Ticket</button>
+        </form>
+      </div>
+      <div class="panel reveal">
+        <div class="section-heading compact">
+          <span class="eyebrow">Ticket center</span>
+          <h2>Messages</h2>
+          <p>Admins can view, reply, and close every ticket. Customers only see their own tickets.</p>
+        </div>
+        <div class="ticket-list" data-ticket-list></div>
+      </div>
+    </section>
+
+    <section class="section" id="other-products">
+      <div class="section-heading reveal">
+        <span class="eyebrow">More ways to level up</span>
+        <h2>Other products and services</h2>
+      </div>
+      <div class="other-grid">
+        <article class="mini-card reveal">
+          <img src="assests/slider.png" alt="Custom UI slider pack">
+          <h3>Custom menu assets</h3>
+          <p>Premium overlays, sliders, and menu visuals for branded launches.</p>
+        </article>
+        <article class="mini-card reveal">
+          <img src="assests/noty.png" alt="Notification product pack">
+          <h3>Notification packs</h3>
+          <p>Neon alert systems and animated purchase notifications.</p>
+        </article>
+        <article class="mini-card reveal">
+          <img src="assests/lista3.png" alt="Admin list product">
+          <h3>Admin utilities</h3>
+          <p>Private admin lists, support dashboards, and fulfillment helpers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section admin-section" id="admin">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Admin dashboard</span>
+        <h2>Secure store operations</h2>
+        <p>Admin-only controls for products, orders, payments, tickets, customers, analytics, content, and pricing.</p>
+      </div>
+      <div class="admin-locked" data-admin-locked>
+        Login as Admin to access product, order, ticket, customer, analytics, and payment controls.
+      </div>
+      <div class="admin-grid" data-admin-grid hidden>
+        <article><span>Products</span><strong data-admin-products>0</strong><p>Add, remove, edit prices, and publish products.</p></article>
+        <article><span>Orders</span><strong data-admin-orders>12</strong><p>Track approvals, fulfillment, refunds, and order history.</p></article>
+        <article><span>Payments</span><strong>PIX</strong><p>Monitor Mercado Pago status and payment confirmations.</p></article>
+        <article><span>Tickets</span><strong data-admin-tickets>0</strong><p>Reply, close, and view all customer conversations.</p></article>
+        <article><span>Customers</span><strong>248</strong><p>Review accounts, permissions, and purchase behavior.</p></article>
+        <article><span>Analytics</span><strong>R$ 18.4k</strong><p>Revenue, conversion, top categories, and support volume.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <div class="payment-modal" data-payment-modal hidden>
+    <div class="payment-card">
+      <button class="modal-close" type="button" data-close-payment aria-label="Close payment">×</button>
+      <span class="eyebrow">Mercado Pago PIX</span>
+      <h2>Complete your payment</h2>
+      <p>Scan the QR Code or copy the PIX code below. Orders are confirmed automatically after approval.</p>
+      <div class="qr-shell">
+        <img data-qr-code alt="PIX payment QR code">
+      </div>
+      <label>
+        Copy-and-paste code
+        <textarea readonly data-pix-code></textarea>
+      </label>
+      <button class="btn btn-secondary full" type="button" data-copy-pix>Copy Code</button>
+      <div class="payment-status" data-payment-status>Waiting for payment...</div>
+    </div>
   </div>
+
+  <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home" aria-label="Go to homepage">
+      <span class="brand-logo">
+        <img src="assests/baixados34.png" alt="Panda Market logo">
+      </span>
+      <span>
+        <strong>Panda Market</strong>
+        <small>Premium gaming marketplace</small>
+      </span>
+    </a>
+    <div class="footer-links">
+      <a href="#products">Shop</a>
+      <a href="#support">Support</a>
+      <a href="https://discord.com" target="_blank" rel="noreferrer">Discord support</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
